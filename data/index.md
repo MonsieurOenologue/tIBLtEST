@@ -28,11 +28,11 @@ tibl is very minimal: even the post listing is in markdown, and is done by hand.
 <!-- radio -->
 <input type="radio" name="radio" id="radio-1"> <label for="radio-1">Radio 1</label><br><input type="radio" name="radio" id="radio-2"> <label for="radio-2">Radio 2</label>
 
-<img src="sign.jpg" alt="sign">
+<img src="data/img/sign.jpg" alt="sign">
 
 <!-- image at the top -->
 <card>
-<img src="sign.jpg" alt="sign">
+<img src="data/img/sign.jpg" alt="sign">
 <h5>Title</h5>
 <p>Content goes here</p>
 </card>
@@ -40,14 +40,14 @@ tibl is very minimal: even the post listing is in markdown, and is done by hand.
 <!-- image in the middle -->
 <card>
 <h5>Title</h5>
-<img src="sign.jpg" alt="sign">
+<img src="data/img/sign.jpg" alt="sign">
 <p>Content goes here</p>
 </card>
 
 <!-- image in the middle -->
 <card>
 <h5>Title</h5>
-<img src="sign.jpg" alt="sign">
+<img src="data/img/sign.jpg" alt="sign">
 <p>Content goes here</p>
 </card>
 
