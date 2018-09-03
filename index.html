@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width" content="initial-scale=1">
-  <link rel="icon" href="data/img/tibl.png" />
+  <link rel="icon" href="data/img/handbox.gif" />
   <link rel="stylesheet" href="css/normalize.css" type="text/css">
   <link rel="stylesheet" href="css/sakura.css" type="text/css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -25,6 +25,23 @@
     render(config['siteroot'] + "data/index" + ".md", 'content', set_title=true);
     render(config['siteroot'] + "data/foot" + ".md", 'footer');
   </script>
+
+<script>
+    function toggle(id) {
+        var element = document.getElementById(id);
+        var i = 0
+        var other_elements = document.getElementById("playlist_element").querySelectorAll("iframe")
+
+          if (element) {
+              var display = element.style.display;
+              if (display == "none") {
+                  element.style.display = "block";
+              } else {
+                  element.style.display = "none";
+              }
+          }
+    }
+    </script>
 
 </body>
 </html>

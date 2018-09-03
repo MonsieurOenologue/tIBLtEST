@@ -1,201 +1,49 @@
-# <p style="text-align: center;">🗿 [tibl](index.html)</p>
+# <p style="text-align: center;" id="title">[paquetage](index.html)</p>
 
-tibl is a bad blog "engine" that currently consists on poorly defined js functions that get markdown posts from Github and renders them client-side.
+<div id="wrapper">
 
-tibl is very minimal: even the post listing is in markdown, and is done by hand. In the near future tibl may get a cli tool to manage the post listing more programmatically.
+<div id="spotify_playlists">
+    <button onclick="toggle('pl1')">B1</button>
+    <button onclick="toggle('pl2')">B2</button>
+    <button onclick="toggle('pl3')">B3</button>
+</div>
 
-<button primary>Primary button</button>
-<button primary round>Primary button</button>
+<div id="playlist_element">
+<iframe src="https://open.spotify.com/embed/user/2h7y5hi4lo7tvg1dmegifyrtz/playlist/1rH6PPrYJ2Acsmfc2coF0K" width="600" height="300" frameborder="10" allowtransparency="true" allow="encrypted-media" style="margin:auto;display:none" id="pl1" class="pl"></iframe>
 
-<label>Username</label>
-<input type="text" placeholder="username">
+<iframe src="https://open.spotify.com/embed/user/2h7y5hi4lo7tvg1dmegifyrtz/playlist/53GgGbTizB67Gb32Ajnl2V" width="600" height="300" frameborder="10" allowtransparency="true" allow="encrypted-media" style="margin:auto;display:none" id="pl2" class="pl"></iframe>
 
-<label>Password</label>
-<input type="password" placeholder="password">
+<iframe src="https://open.spotify.com/embed/user/2h7y5hi4lo7tvg1dmegifyrtz/playlist/0NVRRunH88DL5ts591aj6X" width="600" height="300" frameborder="10" allowtransparency="true" allow="encrypted-media" style="margin:auto;display:none" id="pl3" class="pl"></iframe>
+</div>
 
-<label>Comment</label>
-<textarea placeholder="comment"></textarea>
 
-<!-- select and option -->
-<select>
-	<option disabled selected>Select an option</option>
-	<option>Option One</option>
-</select>
+<style>
+    #wrapper {
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-<!-- checkbox -->
-<input type="checkbox" id="checkbox-1"> <label for="checkbox-1">Checkbox 1</label>
+    #wrapper {
 
-<!-- radio -->
-<input type="radio" name="radio" id="radio-1"> <label for="radio-1">Radio 1</label><br><input type="radio" name="radio" id="radio-2"> <label for="radio-2">Radio 2</label>
+    }
 
-<img src="data/img/sign.jpg" alt="sign">
+    #top_menu {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    iframe {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-<!-- image at the top -->
-<card>
-<img src="data/img/sign.jpg" alt="sign">
-<h5>Title</h5>
-<p>Content goes here</p>
-</card>
+    button {
+        margin-left: 0;
+        margin-right: 0;
+        text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -6px 10px 0px rgba(28,110,164,0.94);
+    }
 
-<!-- image in the middle -->
-<card>
-<h5>Title</h5>
-<img src="data/img/sign.jpg" alt="sign">
-<p>Content goes here</p>
-</card>
 
-<!-- image in the middle -->
-<card>
-<h5>Title</h5>
-<img src="data/img/sign.jpg" alt="sign">
-<p>Content goes here</p>
-</card>
-
-<!-- card element -->
-<card>
-	<p>Your content</p>
-</card>
-
-<!-- card within a grid -->
-<grid>
-	<div col="1/2">
-		<card>
-			<h5>Card title</h5>
-			<hr>
-			<p>Your content here</p>
-		</card>
-	</div>
-	
-	<div col="1/2">
-		<card>
-			<h5>Card title</h5>
-			<hr>
-			<p>Your content here</p>
-		</card>
-	</div>
-</grid>
-
-See tibl on [Github](https://github.com/Uinelj/tibl).
-
-_toc generation may be implemented soontm_
-
-1. [Installation](#Installation)
-    - Github Pages
-    - Web server
-2. [Usage](#Usage)
-    - Add topics/posts
-3. [Files](#Files)
-4. [Customisation](#Customisation)
-    - Themes
-    - Nav/Footer
-5. [Conclusion](#Conclusion)
-
-## <a name="Installation"></a>Installation
-
-Since tibl is very minimal, it doesn't require anything else than something which is able to serve html.
-
-#### Github Pages
-
-1. Fork this repository
-2. Enable Github Pages
-3. Go to your Github Pages URL
-
-#### On a classic web server
-
-TODO
-
-## <a name="Usage"></a>Usage
-
-Currently using tibl may appear a bit cumbersome.
-I'd like to provide some client editor, using client-side Github oauth login plus a tiny markdown editor someday, but I don't know if it's possible.
-
-**TLDR:** `t.html?t=sth` renders `data/topics/sth.md`, `t.html?p=sth` renders `data/topics/_sth.md`, `t.html` alone renders `database.md`.
-
-### Adding topics/posts
-
-I call them topic because why not but eh
-
-* Your posts live in `data/topics` (you can rename topics posts if you edit the lines `27` and `29` of `t.html` accordingly. I'll provide a config var someday).
-
-* Posts that begin with an underscore (`_`), well. They begin with an underscore. They are pages, and they won't be taken into account when building the post listing (when such a tool exists). It's for About/Contact pages, for example.
-
-* Write your post as you like:
-  ```markdown
-  # Hello ! 
-
-  Hello and welcome to my tiny tibl site. 
-  It's fresh and quiet here.
-
-  I like **markdown**.
-
-  > See you !
-  ```
-
-* Add your post into the `database.md` file: 
-
-    ```
-    # Posts
-
-    * [Hello !][hello]
-    * [Blog post about things][things]
-
-    [hello]: t.html?p=hello
-    [things]: t.html?p=things
-    ```
-
-* `t.html?p=hello` will link to `data/topics/hello.md`. tibl will add `.md` at the end, so don't add it in the `database.md` or it won't work.
-* Here's what your `data` file should look like:
-   ```bash
-   data/
-        topics/
-            hello.md # <- Your new post
-            things.md
-        database.md # <- Edited database
-        foot.md
-        index.md
-        nav.md
-   ``` 
-## <a name="Files"></a>Files
-
-   ```bash
-   css/ #<- Make tibl bearable for the eyes
-        normalize.css
-        sakura.css # <- Using oxalorg/sakura as the classless theme
-   data/ # <- All of your post content
-        topics/ # <- Your posts
-            hello.md
-            things.md
-            ...
-        database.md # <- Post listing
-        foot.md # <- footer
-        index.md # <- index page
-        nav.md # <- nav bar
-    js/
-        tibl.js # <- tibl javascript functions
-        config.js # <- config array, currently empty :]
-    index.html # <- Renders the index. Similar to t.html?p=index, I guess
-    t.html # <- Renders pages and topics.
-   ``` 
-
-## <a name="Customization"></a>Customization
-
-### Themes
-
-  Just use classless themes.
-
-  _Note: I just tested Sakura._
-
-  - [Sakura](https://oxal.org/projects/sakura/demo/)
-  - [Marx](https://mblode.github.io/marx/)
-  - [Bare CSS](http://barecss.com)
-  - [classless](https://classless.alhur.es/themes/)
-
-### nav/footer
-
-  I use a markdown nav and footer but if it's not ok for you use html.
-
-  Just change `data/{nav, foot}.md` to your convinience.
-
-## <a name="Conclusion"></a>Conclusion
-
-  Just use something else
+</style>
